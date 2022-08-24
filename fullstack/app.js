@@ -4,8 +4,15 @@ let dotenv = require('dotenv');
 dotenv.config() 
 let port = process.env.PORT || 8790;
 
-let categoryRouter =require("./src/router/categoryRouter")
-let productRouter =require("./src/router/productRouter")
+let menu =[
+    {link:'./',name:'Home'},
+    {link:'./category',name:'category'},
+    {link:'./products',name:'products'}
+    // {link:'./test',name:'test'}
+]
+
+let categoryRouter =require("./src/router/categoryRouter")(menu);
+let productRouter =require("./src/router/productRouter")(menu);
 //middleware
 //static file path
 app.use(express.static(__dirname+'/public'));
@@ -17,7 +24,7 @@ app.set('view engine','ejs');
 //routes
 app.get('/',function(req,res){
     // res.send("Hii From Default Route")
-    res.render('index.ejs')
+    res.render('index',{title:'Home Page',menu})
 })
 
 app.use('/category', categoryRouter);

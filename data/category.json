@@ -1,8 +1,4 @@
-let express = require('express');
-
-let categoryRouter = express.Router();
-
-var category = [
+db.category.insert([
     {
         "id":1,
         "category": "Fashion",
@@ -23,20 +19,4 @@ var category = [
         "category": "Footwear",
         "thumb":"https://i.ibb.co/r3SZq8S/footware.jpg"
     }
-]
-function router(menu){ 
-categoryRouter.route('/')
-.get(function(req,res){
-    // res.send(category)
-    res.render('category',{title:'category page',data:category,menu})
-})
-
-categoryRouter.route('/details')
-.get(function(req,res){
-    res.send("category details")
-})
-
-return categoryRouter;
-}
-module.exports =router;
-
+])

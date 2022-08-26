@@ -16,7 +16,7 @@ app.get('/data',(req,res)=>{
         if(result){
             const output = JSON.parse(result);
             res.send(output);
-
+        
         }else{
             // as data is not in redis get from mongodb
             mongodb.connect(mongoUrl,(err,dc)=>{
@@ -33,7 +33,7 @@ app.get('/data',(req,res)=>{
             })
         }
     })
-})
+    })
 
 app.listen(port,(err)=>{
     console.log(`Server is running  on port ${port}`)

@@ -113,7 +113,7 @@ app.put('/activateUser',(req,res)=>{
 
 
 //Hard Delete User 
-app.put('/deleteUser',(req,res)=>{
+app.delete('/deleteUser',(req,res)=>{
     db.collection(col_name).remove(
         {_id:mongo.ObjectId(req.body._id)},
         (err,result)=>{

@@ -25,6 +25,161 @@
                     }
                 }
             }
+        },
+        "/users":{
+            "summary":"Testing Users",
+            "get":{
+                "description":"Get Users",
+                "tags":["PUBLIC ROUTE"],
+                "parameters":[
+                    {
+                        "in":"query",
+                        "name":"role",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Choose the role as admin or user"
+                    },
+                    {
+                        "in":"query",
+                        "name":"city",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Enter User City"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"Health Check pass"
+                    },
+                    "404":{
+                        "description":"Health Check Fail"
+                    }
+                }
+            }
+        },
+        "/user/{id}":{
+            "summary":"Testing Particular User",
+            "get":{
+                "description":"Get Particular User",
+                "tags":["PUBLIC ROUTE"],
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"id",
+                        "required":true,
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Enter user id"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"Health Check pass"
+                    },
+                    "404":{
+                        "description":"Health Check Fail"
+                    }
+                }
+            }
+        },
+        "/addUser":{
+            "summary":"Add User",
+            "post":{
+                "description":"Adding New User",
+                "tags":["PUBLIC ROUTE"],
+                "requestBody":{
+                    "required":true,
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "name":"babu mama",
+                                "city":"Ap",
+                                "phone":7093637745,
+                                "role":"user",
+                                "isActive":true
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Health Check pass"
+                    },
+                    "404":{
+                        "description":"Health Check Fail"
+                    }
+                }
+            }
+        },
+        "/updateUser":{
+            "summary":"Update User",
+            "put":{
+                "description":"Update User",
+                "tags":["PUBLIC ROUTE"],
+                "requestBody":{
+                    "required":true,
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "_id": "630f3dff31317e0f537f407c",
+                                "name":"babu mama",
+                                "city":"Ap",
+                                "phone":7093637745,
+                                "role":"user",
+                                "isActive":true
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Health Check pass"
+                    },
+                    "404":{
+                        "description":"Health Check Fail"
+                    }
+                }
+            }
+        },
+        "/deleteUser":{
+            "summary":"Delete User",
+            "delete":{
+                "description":"Delete User",
+                "tags":["PUBLIC ROUTE"],
+                "requestBody":{
+                    "required":true,
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "_id": "630f3dff31317e0f537f407c"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Health Check pass"
+                    },
+                    "404":{
+                        "description":"Health Check Fail"
+                    }
+                }
+            }
         }
     }
 
